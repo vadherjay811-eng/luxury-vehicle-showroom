@@ -3,6 +3,7 @@
 
 
 🌟Key Features :
+
 -Dynamic Showroom: An immersive interface for browsing high-quality vehicle imagery and technical specifications.
 
 -Interactive Configurator: Users can explore different vehicle models with real-time data rendering.
@@ -13,7 +14,8 @@
 
 -RESTful API: A scalable backend built with Flask to handle inventory management and user requests.
 
-🛠️ Tech Stack
+🛠️ Tech Stack :
+
 -Frontend: JavaScript (ES6+), HTML5, CSS3 (Custom UI Components)
 
 -Backend: Python 3.x, Flask Framework
