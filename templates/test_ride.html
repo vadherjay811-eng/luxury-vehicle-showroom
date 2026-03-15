@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book a Test Ride</title>
+</head>
+<body>
+  <h1>Book a BMW Test Ride</h1>
+  <form method="POST" action="/book">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Car Model:</label><br>
+    <select name="model" required>
+      <option value="BMW X1">BMW X1</option>
+      <option value="BMW X3">BMW X3</option>
+      <option value="BMW X5">BMW X5</option>
+    </select><br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <button type="submit">Book Now</button>
+  </form>
+</body>
+</html>

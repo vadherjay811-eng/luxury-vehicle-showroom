@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMW Test Ride Confirmation</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 50px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+    h2 {
+      color: #00b4d8;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: #000428;
+      background: #00b4d8;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #0096c7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>✅ Booking Confirmed!</h2>
+    <p><strong>Name:</strong> {{ booking.name }}</p>
+    <p><strong>Email:</strong> {{ booking.email }}</p>
+    <p><strong>Model:</strong> {{ booking.model }}</p>
+    <p><strong>Date:</strong> {{ booking.date }}</p>
+    <p><strong>Booked at:</strong> {{ booking.timestamp }}</p>
+    <a href="/test-ride">Book Another Ride</a>
+    <a href="/history">View Booking History</a>
+  </div>
+</body>

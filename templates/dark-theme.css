@@ -1,0 +1,249 @@
+/* ======================
+   BMW Showroom - Dark Theme
+   ====================== */
+
+body {
+  background-color: #0b0f12;
+  color: #e6eef8;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(10, 14, 18, 0.8);
+  border-bottom: 1px solid rgba(79,195,247,0.2);
+}
+
+.nav-links a {
+  color: #cde7ff;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #4fc3f7;
+}
+
+.signin-btn {
+  border-color: rgba(79,195,247,0.4);
+  color: #bfe9ff;
+}
+.signin-btn:hover {
+  background: linear-gradient(90deg, #2196f3, #4fc3f7);
+  color: white;
+}
+
+/* Hero / Slider text */
+.hero-title,
+.hero-subtitle {
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Cards */
+.model-card, .car-card, .model-box {
+  background: #12181e;
+  color: #f0f6ff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.model-card p,
+.model-box p {
+  color: #b7c8dc;
+}
+
+/* Buttons */
+.buy-btn {
+  background: linear-gradient(90deg, #1565c0, #2196f3);
+  color: white;
+  box-shadow: 0 0 15px rgba(33,150,243,0.3);
+}
+.buy-btn:hover {
+  box-shadow: 0 0 20px rgba(79,195,247,0.5);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(180deg, #000, #0d0f11);
+  color: #b9cfe8;
+}
+.footer a {
+  color: #4fc3f7;
+}
+.footer a:hover {
+  color: #fff;
+}
+
+/* Scrollbar highlight */
+#scroll-bar {
+  box-shadow: 0 0 12px rgba(79,195,247,0.9);
+}
+
+
+
+
+
+
+
+body {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
+.navbar {
+  background-color: #111;
+}
+
+.model-card {
+  background-color: #1c1c1c;
+  color: #fafafa;
+}
+
+button,
+.hero-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+
+#themeToggle {
+  background: none;
+  border: none;
+  color: #4fc3f7;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#themeToggle:hover {
+  transform: scale(1.2);
+}
+
+
+
+/* Dark mode navbar look */
+body.dark-active .navbar {
+background: rgba(15, 20, 25, 0.75);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-active .nav-links a {
+color: #cde7ff;
+}
+body.dark-active .nav-links a:hover,
+body.dark-active .nav-links a.active {
+color: #4fc3f7;
+}
+
+body.dark-active .theme-toggle,
+body.dark-active .signin-btn {
+border: 1px solid rgba(79,195,247,0.3);
+color: #bfe9ff;
+background: rgba(20, 25, 30, 0.4);
+}
+
+
+/* ======== DARK MODE NAVBAR (Glassy BMW Style) ======== */
+body.dark-mode .navbar {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: background 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+/* Navbar Links - Light Blue Accent */
+body.dark-mode .nav-links a {
+  color: #e0e0e0;
+  transition: color 0.4s ease;
+}
+
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links .active {
+  color: #00bfff;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* Sign-in Button in Dark Mode */
+body.dark-mode .signin-btn {
+  background: rgba(0, 191, 255, 0.15);
+  border: 1px solid rgba(0, 191, 255, 0.4);
+  color: #00bfff;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .signin-btn:hover {
+  background: rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Smooth transitions for all navbar elements */
+.navbar, .nav-links a, .signin-btn {
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+
+
+
+
+/* ======== HERO SECTION (Dark Glassy Style) ======== */
+body.dark-mode .hero {
+  position: relative;
+  color: #f5f5f5;
+  background: linear-gradient(
+      rgba(10, 10, 10, 0.65),
+      rgba(10, 10, 10, 0.75)
+    ),
+    url("../images/bmw-dark-bg.jpg") center/cover no-repeat;
+  backdrop-filter: blur(10px);
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+body.dark-mode .hero-content h1 {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+}
+
+body.dark-mode .hero-content p {
+  color: #d0d0d0;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+/* ======== CAR CARD SECTION (Dark BMW Glass) ======== */
+body.dark-mode .car-card {
+  background: rgba(25, 25, 25, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  color: #eaeaea;
+  transition: all 0.4s ease;
+}
+
+body.dark-mode .car-card:hover {
+  background: rgba(0, 191, 255, 0.1);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+/* ======== BUTTONS IN DARK MODE ======== */
+body.dark-mode button,
+body.dark-mode .btn-primary {
+  background: rgba(0, 191, 255, 0.2);
+  border: 1px solid rgba(0, 191, 255, 0.5);
+  color: #00bfff;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .btn-primary:hover {
+  background: rgba(0, 191, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Smooth fade for transitions across sections */
+.hero, .car-card, .btn-primary {
+  transition: all 0.5s ease;
+}

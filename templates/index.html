@@ -1,0 +1,444 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The BMW Showroom</title> <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" /> <!-- Dark Mode CSS (initially disabled) -->
+    <link id="darkTheme" rel="stylesheet" href="dark-theme.css" disabled> <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" /> <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo"><img src="/static/images/logo.png" alt="BMW Logo" /></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#test-ride">Test Ride</a></li>
+        <li><a href="#history">History</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- <button id="themeToggle">🌙</button> -->
+        <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+
+
+        <!-- <button class="signin-btn">Sign in</button> -->
+        <!-- <a href="signin.html" class="signin-btn">Sign in</a> -->
+        <button class="signin-btn" onclick="window.location.href='signin.html'">Sign in</button>
+
+
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Light blue scroll progress bar
+<div id="scroll-bar"></div> -->
+
+
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="carousel-slide active" data-name="BMW X5" data-type="SUV" data-price="$60,000"
+      style="background-image:url('https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmw-driving-pleasure/bmw-driving-pleasure-stage-teaser.jpg')">
+    </div>
+    <div class="carousel-slide" data-name="BMW M3" data-type="Sedan" data-price="$72,000"
+      style="background-image:url('https://cdn.motor1.com/images/mgl/0wVpq/s1/bmw-m3.jpg')"></div>
+    <div class="carousel-slide" data-name="BMW i8" data-type="Hybrid Sports" data-price="$140,000"
+      style="background-image:url('https://cdn.motor1.com/images/mgl/0AN0p/s1/bmw-x5.jpg')"></div>
+
+    <div class="hero-overlay"></div>
+    <img src="/static/images/herooverlayer.webp" alt="BMW Overlay" class="hero-overlay-image">
+
+    <div class="hero-content">
+      <h1 class="hero-title">BMW X5</h1>
+      <p class="hero-subtitle">SUV | Price: $60,000</p>
+      <a href="#shop" class="hero-btn">Explore Models</a>
+    </div>
+
+    <div class="carousel-buttons">
+      <button class="carousel-btn" id="prev">&#10094;</button>
+      <button class="carousel-btn" id="next">&#10095;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <!-- Shop Section -->
+
+
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7faff;
+        color: #333;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 50px;
+        background: white;
+        box-shadow: 0 2px 10px rgba(173, 216, 230, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      header img {
+        height: 50px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #2196f3;
+      }
+
+      h2 {
+        text-align: center;
+        margin: 40px 0 20px;
+        color: #0d47a1;
+        font-size: 2rem;
+      }
+
+      /* Grid layout for cars */
+      .car-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        padding: 20px 60px 60px;
+      }
+
+      /* Card animation */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Car card styling */
+      .car-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(173, 216, 230, 0.3);
+        transition: all 0.4s ease;
+        overflow: hidden;
+        animation: fadeUp 1s ease forwards;
+        opacity: 0;
+      }
+
+      .car-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .car-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+        border: 1px solid rgba(30, 144, 255, 0.3);
+      }
+
+      .car-card h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .car-card h3::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        bottom: -5px;
+        left: 25%;
+        background: linear-gradient(90deg, #2196f3, #4fc3f7);
+        transition: width 0.3s ease;
+      }
+
+      .car-card:hover h3::after {
+        width: 80%;
+      }
+
+      .car-card p {
+        text-align: center;
+        margin: 6px 0;
+        color: #555;
+      }
+
+      .buy-btn {
+        display: block;
+        margin: 15px auto 20px;
+        background: linear-gradient(90deg, #2196f3, #4fc3f7);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .buy-btn:hover {
+        background: linear-gradient(90deg, #4fc3f7, #2196f3);
+        box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        transform: scale(1.05);
+      }
+    </style>
+
+
+
+
+
+  <h2>Our Featured Models</h2>
+
+  <div class="car-container">
+    <div class="car-card">
+      <img src="/static/images/x5.jfif" alt="BMW X5">
+      <h3>BMW X5</h3>
+      <p>Type: Luxury SUV</p>
+      <p>Price: ₹1.05 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/BMW M3.jpg" alt="BMW M3">
+      <h3>BMW M3</h3>
+      <p>Type: Sedan</p>
+      <p>Price: ₹1.30 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/BMW i8.jfif" alt="BMW i8">
+      <h3>BMW i8</h3>
+      <p>Type: Hybrid Sports</p>
+      <p>Price: ₹2.62 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/BMW 7 SERIES.jpg" alt="7Series">
+      <h3>BMW 7 Series</h3>
+      <p>Type: Luxury Sedan</p>
+      <p>Price: ₹1.82 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/bmw x7.webp" alt="BMW X7">
+      <h3>BMW X7</h3>
+      <p>Type: Luxury SUV</p>
+      <p>Price: ₹1.25 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/bmw z4.webp" alt="BMW Z4">
+      <h3>BMW Z4</h3>
+      <p>Type: Convertible</p>
+      <p>Price: ₹90.9 Lakh</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/bmwi7.jfif" alt="BMW i7">
+      <h3>BMW i7</h3>
+      <p>Type: Electric Sedan</p>
+      <p>Price: ₹2.03 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+
+    <div class="car-card">
+      <img src="/static/images/BMW M5.jfif" alt="BMW M4">
+      <h3>BMW M4</h3>
+      <p>Type: Coupe</p>
+      <p>Price: ₹1.47 Cr</p>
+      <button class="buy-btn">Buy</button>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Popup Test Ride Form -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-form">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>Book Your Test Ride</h2>
+      <form id="popupTestRideForm">
+        <input type="text" id="popupName" placeholder="Your Name" required>
+        <input type="email" id="popupEmail" placeholder="Email Address" required>
+        <input type="text" id="popupModel" placeholder="Model Selected" readonly>
+        <input type="date" id="popupDate" required>
+        <button type="submit" class="hero-btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Booking History -->
+  <section id="history" class="history">
+    <h1>Booking History</h1>
+    <table id="historyTable">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Model</th>
+        <th>Date</th>
+        <th>Booked On</th>
+      </tr>
+    </table>
+  </section>
+
+
+  <!-- ========================== BMW HISTORY TIMELINE (3-COLUMN GRID) =========================== -->
+  <!-- ========================== BMW HISTORY TIMELINE (3-COLUMN GRID + GLOWING TITLE) =========================== -->
+  <section class="bmw-history-grid">
+    <h1 class="timeline-title"> <span class="glow-text">BMW HISTORY TIMELINE</span> </h1>
+    <div class="timeline-grid">
+      <div class="timeline-item"> <img src="/static/images/h1.png" alt="BMW 1916">
+        <h3>1916</h3>
+        <p>BMW was founded in Munich, Germany as Bayerische Motoren Werke, producing aircraft engines.</p>
+      </div>
+      <div class="timeline-item">
+        <img src="/static/images/h2.jfif" alt="BMW R32">
+        <h3>1923</h3>
+        <p>BMW’s first motorcycle, the R32, was introduced — a foundation for BMW’s engineering legacy.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h3.jfif" alt="BMW 328 Roadster">
+        <h3>1936</h3>
+        <p>The legendary BMW 328 Roadster was born, setting new benchmarks in racing performance.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h4.jfif" alt="BMW 507">
+        <h3>1956</h3>
+        <p>The stunning BMW 507 Roadster captured hearts with its timeless elegance and design.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h5.jfif" alt="BMW 2002">
+        <h3>1972</h3>
+        <p>The BMW 5 Series was introduced, marking the start of modern BMW luxury sedans.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h6.jfif" alt="BMW M3 E30">
+        <h3>1986</h3>
+        <p>The first BMW M3 (E30) hit the roads, redefining performance and motorsport DNA.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h7.jfif" alt="BMW i8">
+        <h3>2014</h3>
+        <p>BMW launched the futuristic hybrid i8 — blending sustainability with performance.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h8.jfif" alt="BMW iX">
+        <h3>2021</h3>
+        <p>The all-electric BMW iX showcased BMW’s new generation of electric innovation.</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/static/images/h9.jfif" alt="BMW Neue Klasse 2025">
+        <h3>2025</h3>
+        <p>The Vision Neue Klasse concept defines BMW’s future — digital, electric, and dynamic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BMW Logo with Reflection -->
+  <!-- <div class="footer-logo-container">
+  <img src="images/logo.png" alt="BMW Logo" class="footer-logo" />
+</div> -->
+
+  <!-- Footer -->
+  <!-- ======================= FOOTER ======================= -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- LEFT SECTION -->
+      <div class="footer-left">
+        <h3>BMW India</h3>
+        <a href="#">About BMW</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+
+      <!-- CENTER SECTION -->
+      <div class="footer-center">
+        <p>BMW India HQ, Gurugram</p>
+        <p><i class="fa-solid fa-phone"></i> +91 1800-102-2269</p>
+        <p><i class="fa-solid fa-envelope"></i> support@bmw.in</p>
+      </div>
+
+      <!-- RIGHT SECTION -->
+      <div class="footer-right">
+        <select>
+          <option>India (English)</option>
+          <option>India (Hindi)</option>
+          <option>Global</option>
+        </select>
+        <img src="/static/images/logo.png" alt="BMW Logo" />
+      </div>
+
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="footer-bottom">
+      <p>© 2025 BMW India | Designed by <a href="#">Jay Vadher</a></p>
+    </div>
+  </footer>
+  <!-- ======================= END FOOTER ======================= -->
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // animation duration (ms)
+      once: true      // animate only once
+    });
+  </script>
+
+</body>
+
+</html>
